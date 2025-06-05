@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Exam Questions with Options and Answers</title>
+<style>
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #f0f4f8;
+    margin: 0;
+    padding: 20px;
+    color: #333;
+  }
+  h1 {
+    text-align: center;
+    margin-bottom: 40px;
+    color: #004085;
+  }
+  .container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill,minmax(270px, 1fr));
+    gap: 20px;
+  }
+  .card {
+    background: white;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 6px 12px rgb(0 64 128 / 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 24px rgb(0 64 128 / 0.15);
+  }
+  .question {
+    font-weight: 600;
+    margin-bottom: 12px;
+    font-size: 1rem;
+    color: #007bff;
+  }
+  .options {
+    margin-bottom: 12px;
+  }
+  .options label {
+    display: block;
+    padding: 6px 8px;
+    margin-bottom: 6px;
+    border-radius: 6px;
+    cursor: pointer;
+    border: 1px solid #ccc;
+    user-select: none;
+    transition: background-color 0.2s ease;
+  }
+  .options input[type="radio"] {
+    margin-right: 8px;
+    cursor: pointer;
+  }
+  .options label:hover {
+    background-color: #e0f0ff;
+  }
+  .answer {
+    font-size: 0.9rem;
+    background: #d2e6ff;
+    border-radius: 8px;
+    padding: 10px;
+    color: #024a86;
+    font-weight: 600;
+  }
+  @media (max-width: 600px) {
+    .container {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+</head>
+<body>
+
+<h1>Mock Exam Questions with Options and Answers</h1>
+
+<div class="container" id="qa-container">
+  <!-- Cards inserted by JS -->
+</div>
+
+<script>
+const questionsAndAnswers = [
+  {
+    question: "Which of the following is a client-side programming language?",
+    options: ["A. Java", "B. Python", "C. HTML", "D. SQL"],
+    answer: "C. HTML"
+  },
+  {
+    question: "Answer by True/False: CSS stands for Cascading Style Sheets.",
+    options: ["True", "False"],
+    answer: "True"
+  },
+  {
+    question: "Which of the following is used to structure content on a web page?",
+    options: ["A. CSS", "B. HTML", "C. JavaScript", "D. PHP"],
+    answer: "B. HTML"
+  },
+  {
+    question: "Answer by True/False: JavaScript is mainly used for styling the web page.",
+    options: ["True", "False"],
+    answer: "False"
+  },
+  {
+    question: "Which CSS property is used to change the background color of an element?",
+    options: ["A. color", "B. background-color", "C. font-size", "D. margin"],
+    answer: "B. background-color"
+  },
+  {
+    question: "Answer by True/False: The <img> tag is used to define an inline element in HTML.",
+    options: ["True", "False"],
+    answer: "False"
+  },
+  {
+    question: "Match the front-end technologies/tools to their correct descriptions:",
+    options: [
+      "HTML - C) A markup language used for describing the structure of web pages",
+      "CSS - D) A stylesheet language used for describing the presentation of a document",
+      "JavaScript - B) A scripting language used to make web pages interactive",
+      "React.js - A) A framework for building user interfaces"
+    ],
+    answer: "See options above"
+  },
+  {
+    question: "What is the primary role of CSS in front-end web development?",
+    options: ["A. Data processing", "B. Database management", "C. To control the presentation and layout", "D. Backend server communication"],
+    answer: "C. To control the presentation and layout"
+  },
+  {
+    question: "In web development, why is HTML considered an essential technology?",
+    options: ["A. For styling", "B. Because it defines the structure and content of web pages", "C. For backend programming", "D. For server configuration"],
+    answer: "B. Because it defines the structure and content of web pages"
+  },
+  {
+    question: "What is the function of the DOM (Document Object Model) in front-end development?",
+    options: ["A. Storing data", "B. Server communication", "C. It represents the structure of a web page for dynamic interaction", "D. None of the above"],
+    answer: "C. It represents the structure of a web page for dynamic interaction"
+  },
+  {
+    question: "You need to create a simple form on your website that validates the user's email input. Which property would you use on the email field?",
+    options: [
+      "A) type='text'",
+      "B) JavaScript regex validation (see answer)",
+      "C) HTML <form> tag only",
+      "D) CSS background-color"
+    ],
+    answer: `Use JavaScript regex validation:<br/>
+      var email = document.getElementById("email").value;<br/>
+      var regex = /^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/;<br/>
+      if (!regex.test(email)) { alert("Invalid email format!"); }`
+  },
+  {
+    question: "You must create a responsive web page that adapts to different screen sizes. Which CSS media query would you use to style for screen sizes smaller than 768px?",
+    options: ["A) @media screen and (min-width: 768px) { ... }", "B) @media screen and (max-width: 768px) { ... }", "C) @media (orientation: landscape) { ... }", "D) None of the above"],
+    answer: "B) @media screen and (max-width: 768px) { ... }"
+  },
+  {
+    question: "You are working with a navigation menu and want to hide it when the screen size is smaller than 768px. Which CSS rule will achieve this?",
+    options: ["A) @media screen and (max-width: 768px) { display: none; }", "B) display: block;", "C) visibility: hidden;", "D) opacity: 0;"],
+    answer: "A) @media screen and (max-width: 768px) { display: none; }"
+  },
+  {
+    question: "You are working on a website, and the page is loading very slowly. Upon inspection, you realize that there are several large image files. What should you do first to address the issue?",
+    options: ["A) Remove images", "B) Compress or optimize the image files for faster loading", "C) Change image format to PNG", "D) Add more images"],
+    answer: "B) Compress or optimize the image files for faster loading"
+  },
+  {
+    question: "A website's design is responsive on smaller screens but breaks on larger screens. What is the most likely cause of this issue?",
+    options: ["A. The CSS media queries are incorrectly set for smaller screens.", "B. The images are too large.", "C. JavaScript errors on the page.", "D. The HTML code is invalid."],
+    answer: "A. The CSS media queries are incorrectly set for smaller screens."
+  },
+  {
+    question: "While creating a form validation module, you realize that a JavaScript code for the button is invalid. Which should you consider as the most likely cause?",
+    options: ["A. CSS conflict", "B. HTML syntax error", "C. The JavaScript code for the button is undefined.", "D. Browser incompatibility"],
+    answer: "C. The JavaScript code for the button is undefined."
+  },
+  {
+    question: "You are working on a website that needs to support both light and dark themes. Which approach would be the most efficient way to implement theme switching?",
+    options: ["A. Use separate CSS files", "B. Use JavaScript to rewrite all styles", "C. Use inline styles", "D. Use a CSS class for each theme and switch it manually."],
+    answer: "D. Use a CSS class for each theme and switch it manually."
+  },
+  {
+    question: "You have a large-scale front-end application, and the page load time is high due to numerous JavaScript files. Which of the following would be the best way to optimize performance?",
+    options: ["A. Minify and bundle JavaScript files.", "B. Use more libraries", "C. Write more comments", "D. Disable JavaScript"],
+    answer: "A. Minify and bundle JavaScript files."
+  },
+  {
+    question: "You need to create a single-page application (SPA) using React. Which of the following is the first step in setting up the application?",
+    options: ["A) Manually create folder structure", "B) Create a new React project using create-react-app", "C) Write all components by hand", "D) Use jQuery for UI"],
+    answer: "B) Create a new React project using create-react-app"
+  }
+];
+
+const container = document.getElementById('qa-container');
+
+questionsAndAnswers.forEach((qa, index) => {
+  const card = document.createElement('div');
+  card.className = 'card';
+
+  // Build options HTML with unique names for radio buttons to group them per question
+  const optionsHtml = qa.options.map((opt, i) => `
+    <label>
+      <input type="radio" name="q${index}" />
+      ${opt}
+    </label>
+  `).join('');
+
+  card.innerHTML = `
+    <div class="question">${qa.question}</div>
+    <div class="options">${optionsHtml}</div>
+    <div class="answer">Answer: ${qa.answer}</div>
+  `;
+  container.appendChild(card);
+});
+</script>
+
+</body>
+</html>
