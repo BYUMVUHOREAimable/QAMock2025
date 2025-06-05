@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Mock Exam 2024/2025 - Software Development</title>
+<style>
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #f5f7fa;
+    margin: 20px;
+    color: #333;
+  }
+  h1 {
+    text-align: center;
+    color: #222;
+    margin-bottom: 30px;
+  }
+  .container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+  }
+  .card {
+    background: #fff;
+    box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+    border-radius: 12px;
+    padding: 20px;
+    width: 22%;
+    min-width: 280px;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease;
+  }
+  .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 20px rgba(0,0,0,0.15);
+  }
+  .question {
+    font-weight: 600;
+    margin-bottom: 15px;
+    font-size: 1rem;
+  }
+  .options {
+    margin-bottom: 15px;
+  }
+  .option {
+    margin-bottom: 6px;
+    font-size: 0.95rem;
+  }
+  .answer {
+    background: #d1e7dd;
+    color: #0f5132;
+    padding: 10px 15px;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 0.95rem;
+    text-align: center;
+    user-select: none;
+  }
+  @media (max-width: 1200px) {
+    .card {
+      width: 45%;
+    }
+  }
+  @media (max-width: 700px) {
+    .card {
+      width: 90%;
+    }
+  }
+</style>
+</head>
+<body>
+
+<h1>MOCK FOR THE 2024/2025 NATIONAL EXAMINATIONS<br>TRADE: SOFTWARE DEVELOPMENT</h1>
+
+<div class="container" id="qa-container">
+  <!-- Questions will be inserted here by JavaScript -->
+</div>
+
+<script>
+const questions = [
+  {
+    number: 1,
+    text: "Answer True/False:\nHTML is a programming language.",
+    options: ["True", "False"],
+    answer: "False"
+  },
+  {
+    number: 2,
+    text: "Answer True/False:\nIn machine learning, supervised learning requires labeled data.",
+    options: ["True", "False"],
+    answer: "True"
+  },
+  {
+    number: 3,
+    text: "Answer True/False:\nThe <img> tag in HTML is used to display videos.",
+    options: ["True", "False"],
+    answer: "False"
+  },
+  {
+    number: 4,
+    text: "Match Tags in column A with their functions in column B. (4 marks)\n| Column A (Tags) | Column B (Functions) |\n| :-------------- | :------------------- |\n| A. <img>        | 1. Paragraph         |\n| B. <p>          | 2. Image             |\n| C. <a>          | 3. Hyperlink         |\n| D. <div>        | 4. Division          |",
+    options: [
+      "A-2", "B-1", "C-3", "D-4"
+    ],
+    answer: "A-2, B-1, C-3, D-4"
+  },
+  {
+    number: 5,
+    text: "What is Web 3.0? (4 marks)",
+    options: [
+      "A. Decentralized database storage",
+      "B. Decentralized application and blockchain",
+      "C. AI-based algorithms",
+      "D. Data storage in cloud"
+    ],
+    answer: "B. Decentralized application and blockchain"
+  },
+  {
+    number: 6,
+    text: "Which programming language is primarily used for building smart contracts on Ethereum? (4 marks)",
+    options: [
+      "A. Javascript",
+      "B. Python",
+      "C. Solidity",
+      "D. C++"
+    ],
+    answer: "C. Solidity"
+  },
+  {
+    number: 7,
+    text: "In machine learning, what does 'training data' refer to? (4 marks)",
+    options: [
+      "A. The algorithm",
+      "B. The data used for testing the model",
+      "C. The data used to train the model",
+      "D. The error data"
+    ],
+    answer: "C. The data used to train the model"
+  },
+  {
+    number: 8,
+    text: "What type of learning is used where a model is trained with labeled data? (4 Marks)",
+    options: [
+      "A. Supervised learning",
+      "B. Unsupervised learning",
+      "C. Reinforcement learning",
+      "D. Deep learning"
+    ],
+    answer: "A. Supervised learning"
+  },
+  {
+    number: 9,
+    text: "Match the HTTP errors codes with their meaning. (4 Marks)\n| Column A (Codes) | Column B (Meaning) |\n| :--------------- | :----------------- |\n| A. 200           | 1. Not Found       |\n| B. 404           | 2. OK              |\n| C. 500           | 3. Server Error    |\n| D. 401           | 4. Unauthorized    |",
+    options: [
+      "A-2", "B-1", "C-3", "D-4"
+    ],
+    answer: "A-2, B-1, C-3, D-4"
+  },
+  {
+    number: 10,
+    text: "Which of the following is the main purpose of Blockchain technology in Web 3.0? (4 Marks)",
+    options: [
+      "A. Centralized data storage",
+      "B. Decentralized and transparent transactions",
+      "C. User authentication",
+      "D. Data mining"
+    ],
+    answer: "B. Decentralized and transparent transactions"
+  },
+  {
+    number: 11,
+    text: "What is the role of miners in the Ethereum blockchain? (4 Marks)",
+    options: [
+      "A. To store data",
+      "B. To create smart contracts",
+      "C. To validate transactions and add them to the blockchain",
+      "D. To build decentralized applications"
+    ],
+    answer: "C. To validate transactions and add them to the blockchain"
+  },
+  {
+    number: 12,
+    text: "Match the following Web 3.0 concepts with their descriptions: (8 Marks)\nWeb 3.0 concepts:\nA. Ethereum\nB. NFTs\nC. Stable\nD. Decentralized\n\nDescriptions:\n\nDigital assets representing ownership of real-world items\nA decentralized platform for creating and executing smart contracts\nA cryptocurrency whose value is pegged to a stable asset\nA distributed network where users directly interact without intermediaries",
+    options: [
+      "A - A decentralized platform for creating and executing smart contracts",
+      "B - Digital assets representing ownership of real-world items",
+      "C - A cryptocurrency whose value is pegged to a stable asset",
+      "D - A distributed network where users directly interact without intermediaries"
+    ],
+    answer: "A - A decentralized platform for creating and executing smart contracts, B - Digital assets representing ownership of real-world items, C - A cryptocurrency whose value is pegged to a stable asset, D - A distributed network where users directly interact without intermediaries"
+  },
+  {
+    number: 13,
+    text: "Which algorithm would be best suited for predicting the price of a house based on features like location, size, and amenities? (4 Marks)",
+    options: [
+      "A. Random Forest",
+      "B. Linear Regression",
+      "C. K-Nearest Neighbors",
+      "D. Support Vector Machine"
+    ],
+    answer: "B. Linear Regression"
+  },
+  {
+    number: 14,
+    text: "In Web 3.0, if you were developing a decentralized finance (DeFi) application on Ethereum, what would be your first step? (4 Marks)",
+    options: [
+      "A. Deploy the application to the blockchain",
+      "B. Write a smart contract in Solidity",
+      "C. Connect to a centralized financial institution",
+      "D. Store user data in a traditional database"
+    ],
+    answer: "B. Write a smart contract in Solidity"
+  },
+  {
+    number: 15,
+    text: "When training a machine learning model, what is a common way to ensure that the model generalizes well to new data? (4 Marks)",
+    options: [
+      "A. Use the same data for training and testing",
+      "B. Apply regularization techniques to avoid overfitting",
+      "C. Increase data preprocessing",
+      "D. Ignore data inconsistencies"
+    ],
+    answer: "B. Apply regularization techniques to avoid overfitting"
+  },
+  {
+    number: 16,
+    text: "You are building a decentralized application (DApp) on the Ethereum blockchain that involves playing an online game. What would be the key technologies you may need to interact with? (8 Marks)",
+    options: [
+      "A. There is high gas usage and network congestion",
+      "B. You are using a centralized server",
+      "C. You are not interacting with the blockchain",
+      "D. The DApp is slow"
+    ],
+    answer: "A. There is high gas usage and network congestion"
+  },
+  {
+    number: 17,
+    text: "You are developing a Web 3.0-based application that allows users to earn virtual currency. Which network would you choose to ensure that the user's data is secure and under their control? (8 Marks)",
+    options: [
+      "A. Ethereum",
+      "B. Centralized server",
+      "C. Traditional database",
+      "D. None of the above"
+    ],
+    answer: "A. Ethereum"
+  },
+  {
+    number: 18,
+    text: "In a machine learning model, you are evaluating a classification model's performance on a dataset with imbalanced classes (e.g., 90% of the data is 'Class A' and only 10% is 'Class B'). Which of the following evaluation metrics would be most suitable for assessing model performance in this case? (4 Marks)",
+    options: [
+      "A. Accuracy",
+      "B. Precision and Recall",
+      "C. Mean Squared Error",
+      "D. R-squared"
+    ],
+    answer: "B. Precision and Recall"
+  },
+  {
+    number: 19,
+    text: "You need to create a machine learning model to detect fraudulent transactions in a payment system. What would be your approach from data collection to deployment? (8 Marks)",
+    options: [
+      "A. Collect a large dataset, preprocess the data, split it into training and testing sets, train the model, evaluate performance, and deploy",
+      "B. Collect only positive samples, preprocess them, and deploy the model without evaluation",
+      "C. Skip the evaluation phase and deploy the model directly",
+      "D. Use only unsupervised learning to detect anomalies in the data"
+    ],
+    answer: "A. Collect a large dataset, preprocess the data, split it into training and testing sets, train the model, evaluate performance, and deploy"
+  },
+  {
+    number: 20,
+    text: "Assume you are creating a smart contract that rewards users with tokens based on the accuracy of their machine learning model submissions in a decentralized model competition. (8 Marks)\na) What are the main elements of a smart contract above? (4 marks)\nb) How would the reward mechanism work? (4 marks)",
+    options: [],
+    answer: "a) Main elements include contract definition, users’ address, token balance, submission accuracy verification.\nb) Reward mechanism works by checking submission accuracy and distributing tokens accordingly."
+  },
+  {
+    number: 21,
+    text: "To deploy a PyTorch model for real-time fraud detection on Ethereum, which pipeline is BEST for minimizing latency? (5 Marks)",
+    options: [
+      "A) Flask API — AWS Lambda — Chainlink Oracle",
+      "B) ONNX Runtime — TVM compiler — AWS",
+      "C) Uncompressed model — Direct WebGL",
+      "D) Store model weights in IPFS — Review pre-transaction"
+    ],
+    answer: "B) ONNX Runtime — TVM compiler — AWS"
+  }
+];
+
+function createQAItem(q) {
+  const card = document.createElement('div');
+  card.className = 'card';
+
+  const questionEl = document.createElement('div');
+  questionEl.className = 'question';
+  // preserve line breaks in question text
+  questionEl.innerHTML = `<strong>Q${q.number}.</strong> ${q.text.replace(/\n/g, '<br>')}`;
+  card.appendChild(questionEl);
+
+  if (q.options.length > 0) {
+    const optionsEl = document.createElement('div');
+    optionsEl.className = 'options';
+    q.options.forEach(opt => {
+      const optDiv = document.createElement('div');
+      optDiv.className = 'option';
+      optDiv.textContent = opt;
+      optionsEl.appendChild(optDiv);
+    });
+    card.appendChild(optionsEl);
+  }
+
+  const answerEl = document.createElement('div');
+  answerEl.className = 'answer';
+  answerEl.textContent = `Answer: ${q.answer}`;
+  card.appendChild(answerEl);
+
+  return card;
+}
+
+const container = document.getElementById('qa-container');
+questions.forEach(q => {
+  container.appendChild(createQAItem(q));
+});
+</script>
+
+</body>
+</html>
